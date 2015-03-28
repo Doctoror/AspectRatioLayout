@@ -5,7 +5,7 @@ You can make any View behave as AspectRatioLayout by implementing AspectRatioInt
 
 ##Example
 
-```
+```xml
     <!-- The height of this layout will always be as large as width -->
     <com.doctoror.aspectratiolayout.AspectRatioLayout
         android:layout_width="128dp"
