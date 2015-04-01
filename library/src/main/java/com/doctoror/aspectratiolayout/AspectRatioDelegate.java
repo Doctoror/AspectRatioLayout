@@ -56,8 +56,8 @@ public final class AspectRatioDelegate {
             final TypedArray arr = view.getContext()
                     .obtainStyledAttributes(attrs, R.styleable.AspectRatioInterface);
             if (arr != null) {
-                view.setAspect(arr.getFloat(R.styleable.AspectRatioInterface_aspect, -1f));
-                view.setAspectType(
+                setAspect(arr.getFloat(R.styleable.AspectRatioInterface_aspect, -1f));
+                setAspectType(
                         arr.getInt(R.styleable.AspectRatioInterface_aspectType, ASPECT_VERTICAL));
                 arr.recycle();
             }
