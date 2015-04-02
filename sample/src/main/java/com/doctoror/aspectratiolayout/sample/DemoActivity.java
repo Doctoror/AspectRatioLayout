@@ -2,11 +2,8 @@ package com.doctoror.aspectratiolayout.sample;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
-
-public class DemoActivity extends ActionBarActivity {
+public final class DemoActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
