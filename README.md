@@ -21,6 +21,18 @@ You can make any View behave as AspectRatioLayout by implementing AspectRatioInt
         demo:aspect="1"/>
 ```
 
+Min API level 7
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.doctoror.aspectratiolayout/library/badge.png?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.github.doctoror.aspectratiolayout/library)
+
+Add this to build.gradle dependencies, replacing x.x.x with version number.
+
+```groovy
+dependencies {
+    compile 'com.github.doctoror.aspectratiolayout:library:x.x.x'
+}
+```
+
 ##License
 
 ```
