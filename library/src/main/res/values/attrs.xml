@@ -4,8 +4,9 @@
     <declare-styleable name="AspectRatioInterface">
         <attr name="aspect" format="float" />
         <attr name="aspectType">
-            <enum name="vertical" value="0" />
-            <enum name="horizontal" value="1" />
+            <enum name="none" value="0" />
+            <enum name="vertical" value="1" />
+            <enum name="horizontal" value="2" />
         </attr>
     </declare-styleable>
 

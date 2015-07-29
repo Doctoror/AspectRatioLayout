@@ -8,8 +8,8 @@ android {
         applicationId "com.doctoror.aspectratiolayout.sample"
         minSdkVersion 7
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0.2"
+        versionCode 3
+        versionName "1.0.3"
     }
 
     lintOptions {

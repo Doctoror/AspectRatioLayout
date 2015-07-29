@@ -28,24 +28,28 @@ import android.view.View.MeasureSpec;
 public final class AspectRatioDelegate {
 
     /**
+     * The aspect will be ignored and normal measure procedures will be made instead
+     */
+    public static final int ASPECT_NONE = 0;
+
+    /**
      * The widget's height will be matched to width
      */
-    public static final int ASPECT_VERTICAL = 0;
+    public static final int ASPECT_VERTICAL = 1;
 
     /**
      * The widget's width will be matched to height
      */
-    public static final int ASPECT_HORIZONTAL = 1;
+    public static final int ASPECT_HORIZONTAL = 2;
 
     private final AspectRatioInterface mView;
 
-    private float mAspect;
+    private float mAspect = 1f;
 
-    private int mAspectType;
+    private int mAspectType = ASPECT_NONE;
 
     public AspectRatioDelegate(@NonNull final AspectRatioInterface view) {
         this.mView = view;
-        this.mAspect = -1;
     }
 
     public AspectRatioDelegate(@NonNull final AspectRatioInterface view,
@@ -56,9 +60,9 @@ public final class AspectRatioDelegate {
             final TypedArray arr = view.getContext()
                     .obtainStyledAttributes(attrs, R.styleable.AspectRatioInterface);
             if (arr != null) {
-                setAspect(arr.getFloat(R.styleable.AspectRatioInterface_aspect, -1f));
-                setAspectType(
-                        arr.getInt(R.styleable.AspectRatioInterface_aspectType, ASPECT_VERTICAL));
+                mAspect = arr.getFloat(R.styleable.AspectRatioInterface_aspect, 1f);
+                mAspectType = arr
+                        .getInt(R.styleable.AspectRatioInterface_aspectType, ASPECT_NONE);
                 arr.recycle();
             }
         }
@@ -75,7 +79,9 @@ public final class AspectRatioDelegate {
     }
 
     public void setAspectType(final int aspectType) {
-        if (aspectType != ASPECT_VERTICAL && aspectType != ASPECT_HORIZONTAL) {
+        if (aspectType != ASPECT_VERTICAL
+                && aspectType != ASPECT_HORIZONTAL
+                && aspectType != ASPECT_NONE) {
             throw new IllegalArgumentException("Invalid aspectType: " + aspectType);
         }
         if (this.mAspectType != aspectType) {
@@ -86,7 +92,7 @@ public final class AspectRatioDelegate {
 
     public void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
         this.mView.superOnMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (this.mAspect != -1f) {
+        if (this.mAspectType != ASPECT_NONE) {
 
             final int mw = this.mView.getMeasuredWidth();
             final int mh = this.mView.getMeasuredHeight();
