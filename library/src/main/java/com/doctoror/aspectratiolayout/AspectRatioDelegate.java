@@ -30,12 +30,12 @@ public final class AspectRatioDelegate {
     /**
      * The widget's height will be matched to width
      */
-    private static final int ASPECT_VERTICAL = 0;
+    public static final int ASPECT_VERTICAL = 0;
 
     /**
      * The widget's width will be matched to height
      */
-    private static final int ASPECT_HORIZONTAL = 1;
+    public static final int ASPECT_HORIZONTAL = 1;
 
     private final AspectRatioInterface mView;
 
